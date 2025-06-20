@@ -394,12 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.kpi-roi .value').textContent = `${metrics.roi.toFixed(1)}%`;
         document.querySelector('.kpi-cost .value').textContent = `$${metrics.costoPorTransaccion.toFixed(2)}`;
         document.querySelector('.kpi-nps .value').textContent = `${metrics.nps}`;
-        
-        // Actualizar los KPI cards en la sección de KPIs
-        document.querySelectorAll('.kpi-card .value')[0].textContent = `$${(metrics.ebitda / 1000000).toFixed(1)}M`;
-        document.querySelectorAll('.kpi-card .value')[1].textContent = `${metrics.roi.toFixed(1)}%`;
-        document.querySelectorAll('.kpi-card .value')[2].textContent = `$${metrics.costoPorTransaccion.toFixed(2)}`;
-        document.querySelectorAll('.kpi-card .value')[3].textContent = `${metrics.nps}`;
+       
         
         // Actualizar la tabla de métricas financieras
         const financialTableBody = document.querySelector('#financial tbody');
