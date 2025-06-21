@@ -52,6 +52,147 @@ document.addEventListener('DOMContentLoaded', function() {
             'QR Crédito': { crecimiento: 40, participacion: 10 },
             'Prevención de Fraude': { crecimiento: 5, participacion: 60 },
             'Extracción con Transferencias': { crecimiento: 8, participacion: 15 }
+        },
+        // Nuevas variables para análisis del entorno
+        entornoOptions: {
+            politico: [
+                { id: 1, name: 'Influencia gubernamental', description: 'Gobiernos y bancos centrales convierten los pagos instantáneos en infraestructura pública esencial 24/7' },
+                { id: 2, name: 'Situación política', description: 'Proyectos regionales de interconexión señalan el camino para remesas instantáneas y baratas' },
+                { id: 3, name: 'Subsidios gubernamentales', description: 'Inclusión financiera y reducción del uso de efectivo/transferencias P2P gratis o con fee simbólico' },
+                { id: 4, name: 'Relaciones bilaterales', description: 'Mandatos "instant-by-default": regulación que obliga a ofrecer transferencias inmediatas' },
+                { id: 5, name: 'Regulación & Desregulación', description: 'Impulso a CBDC y stablecoins reguladas como complemento soberano a la red bancaria rápida' }
+            ],
+            economico: [
+                { id: 1, name: 'Tasas de inflación', description: 'Impacto de la inflación en los costos operativos y precios' },
+                { id: 2, name: 'Fusiones y transformación', description: 'Crece la consolidación fintech-banca: compras, joint-ventures y "bank-as-a-service"' },
+                { id: 3, name: 'Tasas de crecimiento', description: 'Formalización de la economía: millones de nuevos usuarios' },
+                { id: 4, name: 'Acceso a financiación', description: 'Liquidación al instante mejora liquidez y reduce necesidad de crédito puente para pymes' },
+                { id: 5, name: 'Bancos pierden "float"', description: 'Pero ganan con servicios de valor añadido (request-to-pay, tesorería en tiempo real)' }
+            ],
+            social: [
+                { id: 1, name: 'Valores culturales', description: 'Generación Z & Millennials ya lideran adopción; su peso de consumo acelera lo instantáneo a norma social' },
+                { id: 2, name: 'Actitud hacia el riesgo', description: 'Expectativa de "hand-to-hand money": usuarios asumen que el dinero se mueve tan rápido como un chat' },
+                { id: 3, name: 'Valores éticos', description: 'Auge de fraude APP → inversión en educación financiera + biometría + IA antifraude' },
+                { id: 4, name: 'Población (tamaño)', description: 'Pagos rápidos = puerta de entrada a historial financiero → mayor acceso a microcrédito' },
+                { id: 5, name: 'Cultura "pago embebido"', description: 'Redes sociales, super-apps e IoT convierten cualquier interfaz en punto de cobro' }
+            ],
+            tecnologico: [
+                { id: 1, name: 'IoT - Pagos M2M', description: 'Pagos M2M (vehículos, electrodomésticos) y micro-transacciones IoT despegan con 5G/6G' },
+                { id: 2, name: 'AV & VR y Comunicaciones', description: 'Cobros QR interoperables y request-to-pay se vuelven funciones básicas' },
+                { id: 3, name: 'Inteligencia artificial', description: 'IA en tiempo real analiza cada transacción y frena fraude sin friccionar la experiencia' },
+                { id: 4, name: 'Automatización', description: 'Estándar ISO 20022 + APIs abiertas = interoperabilidad global' },
+                { id: 5, name: 'Impacto del Blockchain', description: 'Blockchain evoluciona: stablecoins reguladas y depósitos tokenizados se integran en rails bancarios' }
+            ],
+            ecologico: [
+                { id: 1, name: 'Huella de carbono', description: '"Green fintech" incorpora cálculo de huella de carbono por compra y opciones de compensación automática' },
+                { id: 2, name: 'Cambio climático', description: 'Data centers crecen; la industria se compromete a energía 100% renovable' },
+                { id: 3, name: 'Resiliencia post-desastre', description: 'Pagos instantáneos fortalecen resiliencia post-desastre' },
+                { id: 4, name: 'Niveles de polución', description: 'Sustitución de efectivo, cheques y PVC -80% de CO₂ por transacción' },
+                { id: 5, name: 'Actitud a tecnologías verdes', description: 'Mayor conciencia ambiental en los consumidores' }
+            ],
+            legal: [
+                { id: 1, name: 'Leyes de salvaguardia', description: 'Monitoreo con IA de Pla y FT' },
+                { id: 2, name: 'Nuevas normativas de licencias', description: 'Licencias híbridas para bancos-fintech globales (dinero electrónico)' },
+                { id: 3, name: 'Regulaciones sobre criptoactivos', description: 'Nuevas normativas y regulaciones internacionales sobre criptoactivos' },
+                { id: 4, name: 'Open Banking / Open Finance', description: 'Acceso obligatorio a cuentas vía API para PISP y fintech' },
+                { id: 5, name: 'Verificación de beneficiario', description: 'Nuevas normas de verificación + reembolso APP fraude protegen al consumidor' }
+            ]
+        },
+        // Nuevas variables para análisis competitivo
+        competitivoOptions: {
+            competencia: [
+                { id: 1, name: 'Link', description: 'Principal competidor en el mercado de pagos digitales' },
+                { id: 2, name: 'COELSA', description: 'Competidor tradicional con fuerte presencia en el mercado' },
+                { id: 3, name: 'Alta Competencia', description: 'Aumento general de competidores en el sector' },
+                { id: 4, name: 'Prisma', description: 'Competidor en soluciones de pagos' },
+                { id: 5, name: 'Interbanking', description: 'Competidor en soluciones bancarias' }
+            ],
+            nuevos: [
+                { id: 1, name: 'Regulación en sector financiero', description: 'La regulación puede ser obstáculo, pero digitalización facilita nuevos competidores' },
+                { id: 2, name: 'Fintech emergentes', description: 'Nuevas fintechs ingresando al mercado con soluciones innovadoras' },
+                { id: 3, name: 'Tecnología blockchain', description: 'Nuevas soluciones basadas en blockchain compitiendo con sistemas tradicionales' },
+                { id: 4, name: 'Bancos digitales', description: 'Nuevos bancos 100% digitales sin sucursales físicas' },
+                { id: 5, name: 'Big Tech', description: 'Empresas tecnológicas grandes ingresando al sector financiero' }
+            ],
+            sustitutos: [
+                { id: 1, name: 'Crypto', description: 'Criptomonedas como alternativa a los sistemas de pago tradicionales' },
+                { id: 2, name: 'Rieles marcas', description: 'Soluciones de pago directo entre marcas' },
+                { id: 3, name: 'Efectivo digital', description: 'Nuevas formas de efectivo digital' },
+                { id: 4, name: 'Billeteras móviles', description: 'Soluciones alternativas de billeteras móviles' },
+                { id: 5, name: 'Pagos P2P', description: 'Sistemas de pago peer-to-peer alternativos' }
+            ],
+            proveedores: [
+                { id: 1, name: 'ACI', description: 'Principal proveedor de tecnología de pagos' },
+                { id: 2, name: 'Proveedores de infraestructura', description: 'Proveedores de infraestructura tecnológica clave' },
+                { id: 3, name: 'Proveedores de seguridad', description: 'Empresas que proveen soluciones de seguridad y antifraude' },
+                { id: 4, name: 'Proveedores de datos', description: 'Empresas que proveen datos y analítica' },
+                { id: 5, name: 'Proveedores de conectividad', description: 'Proveedores de conectividad y redes' }
+            ],
+            clientes: [
+                { id: 1, name: 'Bancos socios Dueños Coelsa', description: 'Bancos socios con poder de negociación' },
+                { id: 2, name: 'Negociacion de Precios Coelsa', description: 'Capacidad de negociación de precios por parte de Coelsa' },
+                { id: 3, name: 'Meli volumen', description: 'Mercado Libre como cliente importante con gran volumen' },
+                { id: 4, name: 'Grandes fintechs', description: 'Fintechs grandes con poder de negociación' },
+                { id: 5, name: 'Bancos tradicionales', description: 'Bancos tradicionales con poder de negociación' }
+            ]
+        },
+        // Estrategias de mitigación predefinidas
+        estrategiasMitigacion: {
+            politico: [
+                "Crear equipo de vigilancia regulatoria para anticipar cambios en normativas",
+                "Establecer relaciones con reguladores y participar en mesas de trabajo sectoriales",
+                "Diversificar operaciones en múltiples jurisdicciones para reducir riesgo regulatorio"
+            ],
+            economico: [
+                "Implementar estrategias de cobertura contra inflación",
+                "Desarrollar modelos de negocio escalables para aprovechar crecimiento del mercado",
+                "Crear alianzas estratégicas para compartir costos de infraestructura"
+            ],
+            social: [
+                "Invertir en educación financiera para usuarios",
+                "Desarrollar programas de inclusión financiera",
+                "Implementar sistemas avanzados de biometría y autenticación"
+            ],
+            tecnologico: [
+                "Invertir en I+D para mantenerse a la vanguardia tecnológica",
+                "Adoptar estándares abiertos para facilitar integraciones",
+                "Desarrollar capacidades de pagos M2M para IoT"
+            ],
+            ecologico: [
+                "Implementar cálculo de huella de carbono por transacción",
+                "Comprometer a energía 100% renovable en data centers",
+                "Desarrollar programas de compensación de carbono"
+            ],
+            legal: [
+                "Implementar sistemas avanzados de monitoreo de PLD/FT",
+                "Crear equipos especializados en cumplimiento normativo",
+                "Desarrollar sistemas de verificación de beneficiario avanzados"
+            ],
+            competencia: [
+                "Diferenciación tecnológica: invertir en mejoras de velocidad y confiabilidad",
+                "Programas de lealtad para clientes estratégicos",
+                "Desarrollar soluciones integradas que combinen múltiples servicios"
+            ],
+            nuevos: [
+                "Barreras de entrada: desarrollar economías de escala y red",
+                "Adquirir startups prometedoras antes que se conviertan en competidores",
+                "Crear ecosistemas cerrados con altos costos de cambio"
+            ],
+            sustitutos: [
+                "Integrar funcionalidades de productos sustitutos (ej: crypto)",
+                "Educar al mercado sobre ventajas de soluciones tradicionales",
+                "Desarrollar interoperabilidad con productos sustitutos"
+            ],
+            proveedores: [
+                "Diversificar base de proveedores para reducir dependencia",
+                "Internalizar desarrollos críticos",
+                "Negociar contratos a largo plazo con proveedores clave"
+            ],
+            clientes: [
+                "Programas de valor agregado para clientes estratégicos",
+                "Desarrollar soluciones personalizadas para grandes clientes",
+                "Crear mecanismos de fidelización y retención"
+            ]
         }
     };
 
@@ -142,26 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Botones del dashboard
-    document.querySelectorAll('.btn-outline-secondary, .btn-outline-primary').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const text = this.textContent.trim();
-            if (text === 'Compartir' || text.includes('Compartir')) {
-                alert('Función de compartir habilitada. En una aplicación real, esto abriría opciones para compartir.');
-            } else if (text === 'Exportar' || text.includes('Exportar')) {
-                alert('Los datos se han exportado correctamente.');
-            } else if (text === 'Actualizar' || text.includes('Actualizar')) {
-                alert('Datos actualizados correctamente.');
-                // En una aplicación real, aquí se recargarían los datos
-            } else if (text === 'Anual' || text === 'Mensual' || text === 'Trimestral') {
-                document.querySelectorAll('.btn-outline-light').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                alert(`Vista cambiada a ${text}. Los gráficos se actualizarían.`);
-                // En una aplicación real, aquí se actualizarían los gráficos
-            }
-        });
-    });
-
     // Initialize range sliders
     const costosOperativosSlider = document.getElementById('costos-operativos');
     const costosOperativosValue = document.getElementById('costos-operativos-value');
@@ -178,18 +299,18 @@ document.addEventListener('DOMContentLoaded', function() {
         initialData.costosOperativos = parseFloat(this.value);
         costosOperativosValue.textContent = `${this.value}%`;
         updatePLCharts();
-        updateKPIMetrics(); // Agregado para actualizar KPIs
-        updateKPITrendChart(); // Agregado para actualizar gráfico de tendencia
-        updateEfficiencyChart(); // Agregado para actualizar gráfico de eficiencia
+        updateKPIMetrics();
+        updateKPITrendChart();
+        updateEfficiencyChart();
     });
 
     gastosGeneralesSlider.addEventListener('change', function() {
         initialData.gastosGenerales = parseFloat(this.value);
         gastosGeneralesValue.textContent = `${this.value}%`;
         updatePLCharts();
-        updateKPIMetrics(); // Agregado para actualizar KPIs
-        updateKPITrendChart(); // Agregado para actualizar gráfico de tendencia
-        updateEfficiencyChart(); // Agregado para actualizar gráfico de eficiencia
+        updateKPIMetrics();
+        updateKPITrendChart();
+        updateEfficiencyChart();
     });
 
     // Impacto slider for entorno analysis
@@ -257,14 +378,11 @@ document.addEventListener('DOMContentLoaded', function() {
             costosOperativosValue.textContent = `${initialData.costosOperativos}%`;
             gastosGeneralesSlider.value = initialData.gastosGenerales;
             gastosGeneralesValue.textContent = `${initialData.gastosGenerales}%`;
-            alert('Configuración optimizada basada en histórico');
-        } else {
-            alert('Configuración de P&L actualizada correctamente');
         }
         updatePLCharts();
-        updateKPIMetrics(); // Agregado para actualizar KPIs
-        updateKPITrendChart(); // Agregado para actualizar gráfico de tendencia
-        updateEfficiencyChart(); // Agregado para actualizar gráfico de eficiencia
+        updateKPIMetrics();
+        updateKPITrendChart();
+        updateEfficiencyChart();
     });
 
     document.getElementById('bcg-form').addEventListener('submit', function(e) {
@@ -300,7 +418,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         initialData.estrategias.push(estrategia);
         updateEstrategiasTable();
-        alert('Estrategia simulada correctamente. Revise el impacto estimado en la tabla.');
     });
 
     // Botones de entorno
@@ -320,10 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initialData.entornoVariables.push(variableObj);
         updateEntornoVariablesList();
         updateEntornoRadarChart();
-    });
-
-    document.querySelector('#entorno-content .btn-outline-secondary').addEventListener('click', function() {
-        alert('Mostrando histórico de variables de entorno');
+        updateSuggestedStrategies();
     });
 
     // Botones competitivo
@@ -343,36 +457,12 @@ document.addEventListener('DOMContentLoaded', function() {
         initialData.competitivoVariables.push(variableObj);
         updateCompetitivoVariablesList();
         updateCompetitivoRadarChart();
-    });
-
-    document.querySelector('#competitivo-content .btn-outline-secondary').addEventListener('click', function() {
-        alert('Mostrando histórico de variables competitivas');
+        updateSuggestedStrategies();
     });
 
     // Botones de crecimiento
     document.querySelector('#crecimiento-content .btn-outline-primary').addEventListener('click', function() {
-        alert('Generando estrategias de crecimiento sugeridas');
-        // En una aplicación real, aquí se generarían estrategias basadas en la matriz BCG
-    });
-
-    // Botones de estrategias
-    document.querySelector('#estrategias-content .btn-outline-primary').addEventListener('click', function() {
-        alert('Preparando nueva simulación de estrategia');
-    });
-
-    document.querySelector('#estrategias-content .btn-outline-secondary').addEventListener('click', function() {
-        alert('Mostrando histórico de estrategias');
-    });
-
-    // Botones de KPIs
-    document.querySelectorAll('#kpis-content .btn-outline-secondary').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const text = this.textContent.trim();
-            document.querySelectorAll('#kpis-content .btn-outline-secondary').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            alert(`Vista de KPIs cambiada a ${text}. Los gráficos se actualizarían.`);
-            // En una aplicación real, aquí se actualizarían los gráficos según el período
-        });
+        updateSuggestedStrategies();
     });
 
     // Funciones de actualización
@@ -394,7 +484,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.kpi-roi .value').textContent = `${metrics.roi.toFixed(1)}%`;
         document.querySelector('.kpi-cost .value').textContent = `$${metrics.costoPorTransaccion.toFixed(2)}`;
         document.querySelector('.kpi-nps .value').textContent = `${metrics.nps}`;
-       
         
         // Actualizar la tabla de métricas financieras
         const financialTableBody = document.querySelector('#financial tbody');
@@ -525,6 +614,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 initialData.entornoVariables = initialData.entornoVariables.filter(v => v.id !== id);
                 updateEntornoVariablesList();
                 updateEntornoRadarChart();
+                updateSuggestedStrategies();
             });
         });
     }
@@ -556,6 +646,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 initialData.competitivoVariables = initialData.competitivoVariables.filter(v => v.id !== id);
                 updateCompetitivoVariablesList();
                 updateCompetitivoRadarChart();
+                updateSuggestedStrategies();
             });
         });
     }
@@ -580,6 +671,116 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             tableBody.appendChild(row);
         });
+    }
+
+    function updateSuggestedStrategies() {
+        // Estrategias sugeridas para análisis de entorno
+        const entornoStrategiesContainer = document.querySelector('#entorno-content .card-body .row');
+        entornoStrategiesContainer.innerHTML = '';
+        
+        // Agrupar variables por categoría con impacto alto
+        const highImpactCategories = {};
+        initialData.entornoVariables.forEach(v => {
+            if (v.impacto >= 4) {
+                if (!highImpactCategories[v.categoria]) {
+                    highImpactCategories[v.categoria] = [];
+                }
+                highImpactCategories[v.categoria].push(v);
+            }
+        });
+        
+        // Generar estrategias para cada categoría con impacto alto
+        Object.keys(highImpactCategories).forEach(categoria => {
+            const strategies = initialData.estrategiasMitigacion[categoria] || [];
+            strategies.forEach((estrategia, index) => {
+                if (index < 2) { // Mostrar máximo 2 estrategias por categoría
+                    const strategyDiv = document.createElement('div');
+                    strategyDiv.className = 'col-md-6';
+                    strategyDiv.innerHTML = `
+                        <div class="strategy-card p-3 mb-3 bg-light">
+                            <h5>${estrategia.split(':')[0] || estrategia}</h5>
+                            <p class="small">${estrategia.split(':')[1] || 'Estrategia de mitigación para ' + categoria}</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-${getBadgeColorForCategory(categoria)}">${categoria}</span>
+                                <button class="btn btn-sm btn-outline-primary apply-strategy" data-strategy="${estrategia}">Aplicar</button>
+                            </div>
+                        </div>
+                    `;
+                    entornoStrategiesContainer.appendChild(strategyDiv);
+                }
+            });
+        });
+        
+        // Estrategias sugeridas para análisis competitivo
+        const competitivoStrategiesContainer = document.querySelector('#competitivo-content .card-body .row');
+        competitivoStrategiesContainer.innerHTML = '';
+        
+        // Agrupar variables por fuerza con intensidad alta
+        const highIntensityForces = {};
+        initialData.competitivoVariables.forEach(v => {
+            if (v.intensidad >= 4) {
+                if (!highIntensityForces[v.fuerza]) {
+                    highIntensityForces[v.fuerza] = [];
+                }
+                highIntensityForces[v.fuerza].push(v);
+            }
+        });
+        
+        // Generar estrategias para cada fuerza con intensidad alta
+        Object.keys(highIntensityForces).forEach(fuerza => {
+            const strategies = initialData.estrategiasMitigacion[fuerza] || [];
+            strategies.forEach((estrategia, index) => {
+                if (index < 2) { // Mostrar máximo 2 estrategias por fuerza
+                    const strategyDiv = document.createElement('div');
+                    strategyDiv.className = 'col-md-6';
+                    strategyDiv.innerHTML = `
+                        <div class="strategy-card p-3 mb-3 bg-light">
+                            <h5>${estrategia.split(':')[0] || estrategia}</h5>
+                            <p class="small">${estrategia.split(':')[1] || 'Estrategia competitiva para ' + fuerza}</p>
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-${getBadgeColorForForce(fuerza)}">${fuerza.replace('actual', 'competencia')}</span>
+                                <button class="btn btn-sm btn-outline-primary apply-strategy" data-strategy="${estrategia}">Aplicar</button>
+                            </div>
+                        </div>
+                    `;
+                    competitivoStrategiesContainer.appendChild(strategyDiv);
+                }
+            });
+        });
+        
+        // Agregar event listeners a los botones de aplicar estrategia
+        document.querySelectorAll('.apply-strategy').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const strategyText = this.getAttribute('data-strategy');
+                // Aquí podrías abrir el formulario de estrategias con esta estrategia pre-seleccionada
+                document.getElementById('estrategias-tab').click();
+                document.getElementById('estrategia-tipo').value = strategyText.split(':')[0] || strategyText;
+                alert(`Estrategia "${strategyText}" seleccionada. Complete los detalles en el Simulador de Estrategias.`);
+            });
+        });
+    }
+
+    function getBadgeColorForCategory(categoria) {
+        const colors = {
+            politico: 'primary',
+            economico: 'info',
+            social: 'success',
+            tecnologico: 'info',
+            ecologico: 'warning',
+            legal: 'danger'
+        };
+        return colors[categoria] || 'secondary';
+    }
+
+    function getBadgeColorForForce(fuerza) {
+        const colors = {
+            competencia: 'danger',
+            nuevos: 'warning',
+            sustitutos: 'info',
+            proveedores: 'primary',
+            clientes: 'success'
+        };
+        return colors[fuerza] || 'secondary';
     }
 
     // Initialize charts
@@ -998,164 +1199,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-
-        // KPI Trend Chart
-        const kpiTrendCtx = document.getElementById('kpiTrendChart').getContext('2d');
-        window.kpiTrendChart = new Chart(kpiTrendCtx, {
-            type: 'line',
-            data: {
-                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                datasets: [
-                    {
-                        label: 'EBITDA ($)',
-                        data: [619700, 654600, 699500, 685400, 702300, 728400, 745500, 759600, 782700, 805800, 828900, 852000],
-                        borderColor: 'rgba(46, 204, 113, 1)',
-                        backgroundColor: 'rgba(46, 204, 113, 0.1)',
-                        tension: 0.3,
-                        yAxisID: 'y'
-                    },
-                    {
-                        label: 'ROI (%)',
-                        data: [18, 19, 20, 21, 22, 23, 22, 23, 24, 24, 24, 24],
-                        borderColor: 'rgba(52, 152, 219, 1)',
-                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
-                        tension: 0.3,
-                        yAxisID: 'y1'
-                    },
-                    {
-                        label: 'NPS',
-                        data: [58, 60, 62, 63, 64, 65, 66, 66, 67, 67, 68, 68],
-                        borderColor: 'rgba(155, 89, 182, 1)',
-                        backgroundColor: 'rgba(155, 89, 182, 0.1)',
-                        tension: 0.3,
-                        yAxisID: 'y2'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                interaction: {
-                    mode: 'index',
-                    intersect: false
-                },
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: 'EBITDA ($)'
-                        },
-                        ticks: {
-                            callback: function(value) {
-                                return '$' + (value / 1000).toLocaleString() + 'K';
-                            }
-                        }
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'ROI (%)'
-                        },
-                        grid: {
-                            drawOnChartArea: false
-                        },
-                        min: 0,
-                        max: 30
-                    },
-                    y2: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'NPS'
-                        },
-                        grid: {
-                            drawOnChartArea: false
-                        },
-                        min: 0,
-                        max: 100
-                    }
-                },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.dataset.label === 'EBITDA ($)') {
-                                    label += '$' + context.raw.toLocaleString();
-                                } else {
-                                    label += context.raw;
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // Efficiency Chart
-        const efficiencyCtx = document.getElementById('efficiencyChart').getContext('2d');
-        window.efficiencyChart = new Chart(efficiencyCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Transferencias Inmediatas', 'Debines', 'PCT', 'Transferencias PSPs', 'Internet Banking'],
-                datasets: [{
-                    label: 'Eficiencia Operativa (%)',
-                    data: [95, 92, 89, 91, 94],
-                    backgroundColor: [
-                        'rgba(52, 152, 219, 0.7)',
-                        'rgba(155, 89, 182, 0.7)',
-                        'rgba(231, 76, 60, 0.7)',
-                        'rgba(241, 196, 15, 0.7)',
-                        'rgba(46, 204, 113, 0.7)'
-                    ],
-                    borderColor: [
-                        'rgba(52, 152, 219, 1)',
-                        'rgba(155, 89, 182, 1)',
-                        'rgba(231, 76, 60, 1)',
-                        'rgba(241, 196, 15, 1)',
-                        'rgba(46, 204, 113, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.raw + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
     }
 
     function updateBCGMatrix() {
@@ -1173,28 +1216,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets[index].data = [{x: crecimiento, y: participacion}];
             window.bcgMatrixChart.update();
         }
-        
-        // Mostrar notificación
-        const toast = document.createElement('div');
-        toast.className = 'position-fixed bottom-0 end-0 p-3';
-        toast.innerHTML = `
-            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header bg-primary text-white">
-                    <strong class="me-auto">Matriz BCG</strong>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    Matriz actualizada para ${unidad} con ${crecimiento}% crecimiento y ${participacion}% participación.
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
     }
+
     function updatePLTable() {
         const metrics = calculateFinancialMetrics();
         const tableBody = document.querySelector('#pl-content tbody');
@@ -1242,6 +1265,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </tr>
         `;
     }    
+
     function updateEntornoRadarChart() {
         // Calcular promedios por categoría
         const categories = ['Político', 'Económico', 'Social', 'Tecnológico', 'Ecológico', 'Legal'];
@@ -1357,4 +1381,5 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCompetitivoVariablesList();
     updateEntornoRadarChart();
     updateCompetitivoRadarChart();
+    updateSuggestedStrategies();
 });
